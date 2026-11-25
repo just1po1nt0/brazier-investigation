@@ -1,0 +1,172 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{csquotes}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tikz}
+\usepackage{tikz-umld}
+\usetikzlibrary{positioning}
+\usepackage{colortbl}
+\newcommand{\colormidrule}{%
+  \arrayrulecolor{black!30}\midrule\arrayrulecolor{black}%
+}
+\usepackage{caption}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{algorithm}
+\usepackage{algpseudocodex}
+\usepackage{float}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+    colorlinks=true,
+    citecolor=blue,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=blue,
+    pdftitle={investigation-filesytem},
+    pdfpagemode=FullScreen,
+}
+\usepackage{xurl}
+\usepackage{fontspec}
+\usepackage{etoolbox}
+\usepackage{fancyhdr}
+\newcommand{\diagramlabel}{}
+\fancypagestyle{page:diagram:continued}{%
+  \fancyhf{}%
+  \fancyfoot[L]{\diagramlabel}
+  \fancyfoot[C]{\thepage}%
+  \fancyfoot[R]{Continued on next page. \bfseries Turn over.}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+}
+
+\fancypagestyle{page:diagram:last}{%
+  \fancyhf{}%
+  \fancyfoot[L]{\diagramlabel}
+  \fancyfoot[C]{\thepage}%
+  \fancyfoot[R]{\bfseries End of diagram.}%   % or leave the [R] slot empty
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+}
+\usepackage{pgfgantt}
+\setganttlinklabel{s-s}{Start to start}
+\setganttlinklabel{f-s}{Finish to start}
+\setganttlinklabel{f-f}{Finish to finish}
+\usepackage{pdfpages}
+\setmainfont{Times New Roman}
+% \renewcommand{\familydefault}{\sfdefault}
+\setsansfont{CMU Bright}[
+  BoldFont={CMU Bright SemiBold},
+  ItalicFont={CMU Bright Oblique},
+]
+\setmonofont{Apercu Mono Pro}
+\usepackage[russian]{babel}         
+\usepackage[backend=biber, style=gost-numeric]{biblatex}
+\addbibresource{references.bib}
+\DeclareLanguageMapping{russian}{russian-gost}
+
+\usepackage{titlesec}
+\titleformat{\section}
+  {\large\bfseries}
+  {\scshape{\thesection}. }
+  {0pt}
+  {\scshape}
+
+\titleformat{\subsection}
+  {\large\bfseries}
+  {\scshape{\thesubsection}. }
+  {0pt}
+  {\scshape}
+
+
+\titleformat{\subsubsection}
+  {\bfseries}
+  {{\thesubsubsection}. }
+  {0pt}
+  {}
+
+  \setlength{\parindent}{0pt}
+
+\titlespacing*{\section}{0pt}{2ex plus 1ex minus .2ex}{0.2ex plus .1ex}
+\titlespacing*{\subsection}{0pt}{2ex plus 1ex minus .2ex}{0.2ex plus .1ex}
+\titlespacing*{\subsubsection}{0pt}{2ex plus 1ex minus .2ex}{0.75ex plus .2ex}
+\titlespacing*{\paragraph}{0pt}{0.25ex plus 0.25ex minus .2ex}{0.5em}
+
+\usepackage{xcolor}
+\definecolor{phasegray}{HTML}{555D63}
+\definecolor{taskgreen}{HTML}{19C934}
+\definecolor{taskblue}{HTML}{0067C8}
+\definecolor{taskpurple}{HTML}{A600D7}
+\definecolor{taskorange}{HTML}{FF8500}
+\definecolor{taskpink}{HTML}{F5005A}
+\definecolor{gridgray}{HTML}{D8DDE1}
+\tikzset{ganttgrid/.style={draw=gridgray,line width=0.35pt}}
+\setganttlinklabel{f-s}{}
+
+\usepackage{minted}
+\setminted{
+    style=xcode,
+    fontsize=\footnotesize,
+    linenos=true,
+    breaklines=true,
+}
+
+\renewcommand{\theFancyVerbLine}{%
+    \footnotesize
+    \textcolor{black}{\arabic{FancyVerbLine}:}
+}
+
+
+\graphicspath{{./images/}}
+\geometry{a4paper, margin=1in}
+\captionsetup{
+    font=small,
+    labelfont=bf,
+    justification=centering,
+    margin=2cm
+}
+
+\title{Файловая система brazier}
+\author{Николай Свастон}
+\date{\today{}}
+\setlength{\parskip}{0.75em}
+\setlength{\parindent}{0em}
+
+\makeatletter
+\renewcommand{\verbatim@font}{\ttfamily\footnotesize}
+\makeatother
+\let\oldtexttt\texttt
+\renewcommand{\texttt}[1]{{\footnotesize\oldtexttt{#1}}}
+
+\urlstyle{same}
+
+\setcounter{secnumdepth}{0}
+
+\begin{document}
+\pagenumbering{gobble}
+
+\maketitle
+
+\phantomsection
+\label{toc}
+\tableofcontents
+
+\pagebreak
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\section{Введение}\label{sec:intro}
+
+Hello world!~\autocite{cheung:approximation_2026}
+
+\pagebreak
+
+\printbibliography{}
+
+\end{document}
