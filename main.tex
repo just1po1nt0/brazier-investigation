@@ -1,6 +1,7 @@
 \documentclass[14pt]{extarticle}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath, amssymb}
+\usepackage{indentfirst}
 \usepackage{url}
 \usepackage{graphicx}
 \usepackage{geometry}
@@ -86,9 +87,7 @@
   {0pt}
   {}
 
-  \setlength{\parindent}{0pt}
-
-\titlespacing*{\section}{0pt}{2ex plus 1ex minus .2ex}{0.2ex plus .1ex}
+\titlespacing*{\section}{0pt}{2ex plus 1ex minus .2ex}{2ex plus .1ex}
 \titlespacing*{\subsection}{0pt}{2ex plus 1ex minus .2ex}{0.2ex plus .1ex}
 \titlespacing*{\subsubsection}{0pt}{2ex plus 1ex minus .2ex}{0.75ex plus .2ex}
 \titlespacing*{\paragraph}{0pt}{0.25ex plus 0.25ex minus .2ex}{0.5em}
@@ -130,8 +129,8 @@
 \title{Файловая система brazier}
 \author{Николай Свастон}
 \date{\today{}}
-\setlength{\parskip}{0.75em}
-\setlength{\parindent}{0em}
+\setlength{\parskip}{0em}
+\setlength{\parindent}{2em}
 
 \makeatletter
 \renewcommand{\verbatim@font}{\ttfamily\footnotesize}
@@ -159,6 +158,7 @@
 
 \section{Введение}\label{sec:intro}
 
+\indent
 Проблематика, которую призван решать Brazier, 
 лежит на пересечении масштабируемости, 
 предсказуемости задержек и стоимости инфраструктуры: 
