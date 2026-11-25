@@ -10,6 +10,7 @@
 \usepackage{array}
 \usepackage{tikz}
 \usepackage{graphviz}
+\usepackage{textcase}
 \usetikzlibrary{positioning}
 \usepackage{colortbl}
 \newcommand{\colormidrule}{%
@@ -129,17 +130,16 @@
     labelsep=endash
 }
 
-\title{Файловая система brazier}
-\author{Николай Свастон}
-\date{\today{}}
+% Пропуски перед параграфами
+
 \setlength{\parskip}{0.75em}
-\setlength{\parindent}{0em}
+\setlength{\parindent}{0.5em}
 
 \makeatletter
-\renewcommand{\verbatim@font}{\ttfamily\footnotesize}
+\renewcommand{\verbatim@font}{\ttfamily\normalsize}
 \makeatother
 \let\oldtexttt\texttt
-\renewcommand{\texttt}[1]{{\footnotesize\oldtexttt{#1}}}
+\renewcommand{\texttt}[1]{{\normalsize\oldtexttt{#1}}}
 
 \urlstyle{same}
 
@@ -174,9 +174,20 @@
 \makeatother
 
 \begin{document}
+
 \pagenumbering{gobble}
 
-\maketitle
+\begin{titlepage}
+  \small УДК: \ldots \normalsize
+  \begin{center}
+    \uppercase{\textbf{Производство высокопроизводительных веб-решений на языке C++}}
+    \vspace{0.5cm}
+    
+    \textbf{Н. А. Сугоняко}, бакалавр компьютерных наук \\
+    \textbf{К. В. Сергеев}, бакалавр компьютерных наук \\
+    \textbf{Г. А. Сафьянников}
+  \end{center} 
+\end{titlepage}
 
 \phantomsection
 \label{toc}
@@ -207,6 +218,12 @@
 \end{table}
 
 \texttt{this.isCode}
+
+\small
+\begin{align*}
+  \text{C++ того стоит тогда и только тогда}\\
+  \text{когда } S_\text{инфраструктура}+S_\text{инжинеринг}>C_\text{дополнительная разработка}+C_\text{обслуживание}+C_\text{кадровый риск}
+\end{align*}
 
 \pagebreak
 
