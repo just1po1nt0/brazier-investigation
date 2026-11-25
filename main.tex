@@ -9,7 +9,7 @@
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{tikz}
-\usepackage{tikz-umld}
+\usepackage{graphviz}
 \usetikzlibrary{positioning}
 \usepackage{colortbl}
 \newcommand{\colormidrule}{%
@@ -18,8 +18,6 @@
 \usepackage{caption}
 \usepackage{tabularx}
 \usepackage{ragged2e}
-\usepackage{algorithm}
-\usepackage{algpseudocodex}
 \usepackage{float}
 \usepackage[hidelinks]{hyperref}
 \hypersetup{
@@ -64,7 +62,6 @@
   BoldFont={CMU Bright SemiBold},
   ItalicFont={CMU Bright Oblique},
 ]
-\setmonofont{Apercu Mono Pro}
 \usepackage[russian]{babel}         
 \usepackage[backend=biber, style=gost-numeric]{biblatex}
 \addbibresource{references.bib}
@@ -128,7 +125,8 @@
     font=small,
     labelfont=bf,
     justification=centering,
-    margin=2cm
+    margin=2cm,
+    labelsep=endash
 }
 
 \title{Файловая система brazier}
@@ -147,6 +145,34 @@
 
 \setcounter{secnumdepth}{0}
 
+% Форматы таблиц
+
+\makeatletter
+
+\newif\if@tablenumpending
+
+\newcommand{\tablenumber}[1]{%
+    \gdef\@pendingtabnum{Таблица~#1}%
+    \@tablenumpendingtrue
+}
+
+\newcommand{\tableheading}[1]{%
+    \if@tablenumpending
+        \begingroup
+        \captionsetup{width=\textwidth, margin=0pt}
+        \caption*{%
+            \makebox[\textwidth][r]{\@pendingtabnum}\\
+            \makebox[\textwidth][c]{\textbf{#1}}%
+        }%
+        \endgroup
+        \@tablenumpendingfalse
+    \else
+        \caption*{\textbf{#1}}%
+    \fi
+}
+
+\makeatother
+
 \begin{document}
 \pagenumbering{gobble}
 
@@ -164,6 +190,23 @@
 \section{Введение}\label{sec:intro}
 
 Привет мир!~\autocite{cheung:approximation_2026}
+
+\begin{table}
+  \centering
+  \tablenumber{\ref{tab:stats}}
+  \tableheading{Детали о выручке}
+  \begin{tabular}{l c r}
+    \toprule
+    \textbf{Регион} & \textbf{Количество} & \textbf{Выручка} \\
+    \midrule
+    Север & 150 & 12\,500 \\
+    Юг & 210 & 18\,900\\
+    \bottomrule
+  \end{tabular}
+  \caption{Детальная статистика за отчетный период}\label{tab:stats}
+\end{table}
+
+\texttt{this.isCode}
 
 \pagebreak
 
